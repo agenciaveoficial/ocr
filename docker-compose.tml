@@ -1,0 +1,9 @@
+services:
+  ocr-api:
+    build: .
+    ports:
+      - "8000:8000"
+    container_name: ocr-api
+
+x-environment:
+  COMPOSE_BAKE: "true"
