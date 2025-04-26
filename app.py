@@ -19,7 +19,7 @@ async def ocr(files: List[UploadFile] = File(...)):
         try:
             contents = await file.read()
             image = Image.open(io.BytesIO(contents))
-            text = pytesseract.image_to_string(image, lang='por')
+            text = pytesseract.image_to_string(image, lang='por',config='--psm 6 --oem 3')
             results.append({
                 "filename": file.filename,
                 "text": text
